@@ -3,7 +3,7 @@
 ## Mission
 Create a quiz generator using Google Gemini, Langchain, Chroma, and Streamlit to explore LLMs and vector embeddings. 
 
-## Requirments:
+## Requirements:
 
 - Python version 3.11 or above
 - [Streamlit Documentation](https://docs.streamlit.io/)
@@ -22,7 +22,7 @@ To run the Quiz Builder:
 
 ## Tasks
 
-## Task 1: Enabling Google Cloud
+## Task 1: 🔑 Google Cloud, Vertex AI, & SDK Authentication
 
 - Go to the [Google Cloud Platform](console.cloud.google.com) and select "Get Started for free".
 - Sign in using your Google Account and complete the billing requirements.
@@ -30,7 +30,7 @@ To run the Quiz Builder:
 - Navigation -> Artificial Intelligence -> Vertex AI -> Enable All Recommended APIs
 
 
-## Task 2: Google Cloud Initialization
+## Task 2: 💻 Dev Environment Setup
 
 - Install the Google SDK using this [link](https://cloud.google.com/sdk/docs/install).
 - Run the following command to initialize the SDK:
@@ -38,61 +38,66 @@ To run the Quiz Builder:
   gcloud init
 - Sign in using your Google Account credentials.
 - Select an existing project or Create a new project
+- Add your Gemini authentication.json to the gitignore file
 
 
-## Task 3: Setting up Google Gemini
+## Task 3: 📥 Document Ingestion
 
 - Install the streamlit framework
   ```
   pip install streamlit
-- In the project, we are using Gemini Pro as the LLM.
-- Use the project ID instead of the project name, like this: `project = "project_id"`. This helps avoid encountering a 403 permission denied error.
-
-
-## Task 4: Building a PDF Loader
-
-
-## Task 4: Building a PDF Loader
-
-
-## Task 4: Building a PDF Loader
+- Create a file uploader using ```st.file_uploader()``` that only accepts PDF's
+- Process the file using a [PyPDFLoader](https://python.langchain.com/docs/modules/data_connection/document_loaders/pdf#using-pypdf)
+  ![quizzifytask3](https://github.com/hari660/geminiQuizzify/assets/55326522/e1366955-19f7-4fa4-85f7-b10020ec6e4d)
 
 
 
-## Task 4: Building a PDF Loader
+## Task 4: 🔗 Embedding with VertexAI & Langchain
+- Install the Langchain Vertex framework
+  ```
+  pip install langchain_google_vertexai
+- Initialize VertexAIEmbeddings Client
+- Create a function to retrieve embeddings for a single query
+- Create a function to retrieve embeddings for multiple documents
+
+
+## Task 5: 🛠️ Data Pipeline to Chroma DB
+- Create a Chroma collection from the documents processed by the DocumentProcessor (from previous tasks)
+  - Split documents into chunks using Langchain's [CharacterTextSplitter](https://python.langchain.com/docs/modules/data_connection/document_transformers/character_text_splitter)
+  - Create the [Chroma](https://docs.trychroma.com/) collection
+  ![quizzifytask5](https://github.com/hari660/geminiQuizzify/assets/55326522/377606c6-c695-411a-b30a-5c88183033f6)
 
 
 
-## Task 4: Building a PDF Loader
+## Task 6: 📡 Streamlit UI for Data Ingestion
+- Initialize DocumentProcessor, EmbeddingClient, and ChromaCollectionCreator from previous tasks
+- Use Streamlit to capture user's inputs regarding quiz topic and desired number of questions
+- Create a chroma collection from the processed documents
+
+## Task 7: 🧠 Quiz Generator Class
+- Create a QuizGenerator Class
+  - Create a question template
+  - Enable a retriever using the vectorstore object
+  - Create chain with the retriever, template, and llm as to generate a question based off of the various ingested documents
+
+
+
+## Task 8: 🔮 Generate Quiz Algorithm
+- Loop the QuizGenerator and validate the questions uniqueness
+
+
+
+## Task 9: 🎓 Generate Quiz UI
+- Create a Streamlit UI to visualize a question
+  ![quizzifytask9](https://github.com/hari660/geminiQuizzify/assets/55326522/a95aa6ea-b7d5-4ccb-9368-96fe64aa7590)
 
 
 
 
-## Task 4: Building a PDF Loader
 
-
-
-
-## Task 4: Building a PDF Loader
-
-
-
-
-## Task 4: Building a PDF Loader
-
-
-
-
-
-
-
-5. Building a user interface with Streamlit.
-6. Generating quizzes based on user input topics.
-7. Providing explanations for quiz answers.
-8. Navigation controls for the quiz interface.
-9. Error handling and validation.
-10. Packaging and deployment considerations.
-
+## Task 10: 🔄 Screen State Handling
+- Enable the interface to handle all the quiz questions, move back and forth in the quiz, and display the correct answer and an explanation
+  ![quizzifytask10](https://github.com/hari660/geminiQuizzify/assets/55326522/6c89bc3e-16da-49d9-aab1-73e7498cd5e7)
 
 
 
@@ -100,7 +105,7 @@ To run the Quiz Builder:
 ## Task 11: Preparing Submission
 
  - A GitHub repository for the project containing all the project files.
- - Loom Video to show the approach. [Loom Link](https://www.loom.com/share/27cbe9a2df964cc6be0be9d745df0d03?sid=69ccce98-14cf-43a9-b03e-cbf601615b38)
+ - Loom Video to show the approach. [Loom Link]()
 
 
 ## License
