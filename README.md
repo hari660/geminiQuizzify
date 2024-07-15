@@ -105,7 +105,7 @@ To run the Quiz Builder:
 ## Task 11: Preparing Submission
 
  - A GitHub repository for the project containing all the project files.
- - Loom Video to show the approach. [Loom Link]()
+ - Loom Video to show the approach. [Loom Link](https://www.loom.com/share/0d3477b7b1564b648903a67f07756414?sid=f9a28bf1-1fb8-469e-b8e3-06b0ff630ebb)
 
 
 ## License
